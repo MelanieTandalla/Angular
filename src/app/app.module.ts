@@ -13,10 +13,15 @@ import { CategoryComponent } from './pages/category/category.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { BreadcrumbsComponent } from './shared/breadcrumbs/breadcrumbs.component';
 import { NoFoundPagesComponent } from './no-found-pages.component';
+import { NoFoundComponent } from './no-found/no-found.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, PagesComponent, LoginComponent, RegisterComponent,DashboardComponent, ProductComponent, CategoryComponent, SidebarComponent, BreadcrumbsComponent, NoFoundPagesComponent],
-  imports: [BrowserModule],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, PagesComponent, LoginComponent, RegisterComponent,DashboardComponent, ProductComponent, CategoryComponent, SidebarComponent, BreadcrumbsComponent, NoFoundPagesComponent, NoFoundComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
