@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NoFoundPagesComponent } from './no-found-pages.component';
+import { SharedComponent } from './shared.component';
 
-describe('NoFoundPagesComponent', () => {
-  let component: NoFoundPagesComponent;
-  let fixture: ComponentFixture<NoFoundPagesComponent>;
+describe('SharedComponent', () => {
+  let component: SharedComponent;
+  let fixture: ComponentFixture<SharedComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NoFoundPagesComponent ]
+      declarations: [ SharedComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(NoFoundPagesComponent);
+    fixture = TestBed.createComponent(SharedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
