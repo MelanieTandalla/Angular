@@ -28,7 +28,7 @@ export class ProductComponent implements OnInit {
     const data = {
       title: 'Libros',
       price: 15,
-      descripcion: 'Utiles escolares / Jair Delgado',
+      descripcion: 'Utiles escolares / Erick Guevara',
       categoryId: 1,
     };
     const response = this.httpClient
