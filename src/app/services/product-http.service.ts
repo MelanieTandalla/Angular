@@ -1,20 +1,10 @@
-import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ProductHttpService } from 'src/app/services/product-http.service';
+import { Injectable } from '@angular/core';
 
-@Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css'],
+@Injectable({
+  providedIn: 'root',
 })
-export class ProductComponent implements OnInit {
-  constructor(private productHttp: ProductHttpService) {}
-
-  ngOnInit(): void {
-    //this.updateProduct();
-    //this.createProduct();
-    this.deleteProduct();
-  }
+export class ProductHttpService {
   getProducts() {
     const response = this.httpClient
       .get('https://api.escuelajs.co/api/v1/products')
@@ -28,6 +18,8 @@ export class ProductComponent implements OnInit {
       console.log(response);
     });
   }
+
+  constructor(private httpClient: HttpClient) {}
   createProduct() {
     const data = {
       title: 'Computadora Itel core i7',
@@ -61,3 +53,5 @@ export class ProductComponent implements OnInit {
     });
   }
 }
+
+
