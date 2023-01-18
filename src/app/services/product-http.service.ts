@@ -6,38 +6,37 @@ import { CreateProductModelDto, ProductModel, UpdateProductModelDto } from '../e
 @Injectable({
   providedIn: 'root',
 })
-
 export class ProductHttpService {
-
-  readonly API_URL ='https://api.escuelajs.co/api/v1/products';
+  readonly API_URL = 'https://api.escuelajs.co/api/v1/products';
 
   constructor(private httpClient: HttpClient) {}
 
-  getAll():Observable<ProductModel[]> {
+  getAll(): Observable<ProductModel[]> {
     const url = `${this.API_URL}`;
     return this.httpClient.get<ProductModel[]>(url);
   }
 
-  getOne(id:ProductModel['id']):Observable<ProductModel> {
+  getOne(id: ProductModel['id']): Observable<ProductModel> {
     const url = `${this.API_URL}/${id}`;
     return this.httpClient.get<ProductModel>(url);
-
   }
 
-  store(product:CreateProductModelDto) {
+  store(product: CreateProductModelDto): Observable<ProductModel> {
     const url = `${this.API_URL}`;
-    return this.httpClient.post(url, product);
+    return this.httpClient.post<ProductModel>(url, product);
   }
 
-  update(id:ProductModel['id'], product: UpdateProductModelDto) {
-    const url = `${this.API_URL}/${id}`
-    return this.httpClient.put(url, product);
-    
+  update(
+    id: ProductModel['id'],
+    product: UpdateProductModelDto
+  ): Observable<ProductModel> {
+    const url = `${this.API_URL}/${id}`;
+    return this.httpClient.put<ProductModel>(url, product);
   }
 
-  destroy(id:ProductModel['id']) {
-    const url = `${this.API_URL}/${id}`
-    return this.httpClient.delete(url);
+  destroy(id: ProductModel['id']):Observable<ProductModel>  {
+    const url = `${this.API_URL}/${id}`;
+    return this.httpClient.delete<ProductModel>(url);
   }
 }
 
