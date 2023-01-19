@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductModel, UpdateProductModelDto } from 'src/app/entities/product.model';
 import { ProductHttpService } from 'src/app/services/product-http.service';
 
 @Component({
@@ -7,16 +8,23 @@ import { ProductHttpService } from 'src/app/services/product-http.service';
   styleUrls: ['./product.component.css'],
 })
 export class ProductComponent implements OnInit {
+
+  products: ProductModel[] = [];
+  selectedProduct: UpdateProductModelDto={}
+
   constructor(private productHttpService: ProductHttpService) {}
 
   ngOnInit(): void {
-    //this.updateProduct();
-    //this.createProduct();
-    //this.deleteProduct();
+    this.getProducts();
+    this.getProduct();
+    this.updateProduct();
+    this.createProduct();
+    this.deleteProduct();
   }
- getPoducts(){
+ getProducts(){
    this.productHttpService.getAll().subscribe(
     response=>{
+       this.products= response
       console.log(response)})
  }
  getProduct(){
@@ -38,6 +46,9 @@ export class ProductComponent implements OnInit {
     response=>{
       console.log(response)})
  }
+ editProduct(product: ProductModel){
+  this.selectedProduct = product
+ }
  updateProduct(){
   const data = {
     title: 'Computadora Itel core i10',
@@ -48,9 +59,10 @@ export class ProductComponent implements OnInit {
     response => {
       console.log(response)})
  }
- deleteproduct(){
-  this.productHttpService.destroy(4).subscribe(
-    response=>{
+ deleteProduct(){
+  this.productHttpService.destroy(1).subscribe(
+    response => {
+      //this.products= this.products.filter(product => product.id != id)
       console.log(response)})
  }
 
