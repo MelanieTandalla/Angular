@@ -14,7 +14,6 @@ export interface CreateProductModelDto extends Omit<ProductModel,'id' | 'categor
   
 }
 //Partial: toma algunos campos para cambiarlos
-// ? opcional 
 export interface UpdateProductModelDto extends Partial<ProductModel> {
   categoryId?:number;
   

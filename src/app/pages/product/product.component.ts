@@ -36,7 +36,7 @@ export class ProductComponent implements OnInit {
   const data = {
     title: 'Computadora Itel core i7',
     price: 650,
-    description: 'Electrodomesticos / Erick Guevara',
+    description: 'Laptops / Melanie Tandalla',
     images: [
       'https://m.media-amazon.com/images/I/51A+xXT0yiL._AC_SY580_.jpg',
     ],
@@ -53,7 +53,7 @@ export class ProductComponent implements OnInit {
   const data = {
     title: 'Computadora Itel core i10',
     price: 1150,
-    description: 'Electrodomesticos / Erick Guevara',
+    description: 'Laptops / Melanie Tandalla',
   };
   this.productHttpService.update(1,data).subscribe(
     response => {
